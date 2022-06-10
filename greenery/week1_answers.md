@@ -1,6 +1,6 @@
 ## Week1 Project Questions
 
-### Some of the questions that can be answered with the staging models.
+### Sample of Questions that can be answered with the staging models.
 
 <br>
 
