@@ -86,6 +86,33 @@ models:
       - name: status
         description: status of the order. shipped, preparing or delivered.
 
+  - name: stg_order_items
+    description: products part of an order & their quantities.
+
+    columns:
+      - name: order_id
+        description: order reference
+      - name: product_id
+        description: product_id of the product which is part of the order
+
+      - name: quantity
+        description: number of products being ordered
+
+  - name: stg_events
+    description: Log of user activity on greenery.com
+
+    columns:
+      - name: event_id
+        description: unique id for an event
+        tests:
+          - not_null
+          - unique
+      - name: session_id
+        description: session_id of the user activity. There could be multiple events for a session.
+
+      - name: event_type
+        description: type of the user activity, possible values are add_to_cart, checkout, page_view, package_shipped
+
 
 
       
