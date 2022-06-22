@@ -20,6 +20,9 @@ models:
         tests: 
           - unique
           - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
 
       - name: first_name
         description: First name of the user.
@@ -70,19 +73,23 @@ models:
           - unique
           - not_null
 
-    columns:
       - name: user_id
         description: id of user making the order, references stg_users
+        test:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
 
-    columns:
       - name: address_id
         description: address for the order, references stg_addresses
+        test:
+          - relationships:
+              to: ref('stg_addresses')
+              field: address_id
 
-    columns:
       - name: created_at
         description: date and time of when the order was created.
 
-    columns:
       - name: status
         description: status of the order. shipped, preparing or delivered.
 
@@ -92,8 +99,20 @@ models:
     columns:
       - name: order_id
         description: order reference
+        test:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+
       - name: product_id
         description: product_id of the product which is part of the order
+        test:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
 
       - name: quantity
         description: number of products being ordered
@@ -113,6 +132,27 @@ models:
       - name: event_type
         description: type of the user activity, possible values are add_to_cart, checkout, page_view, package_shipped
 
+      - name: order_id
+        description: order reference
+        test:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+
+      - name: product_id
+        description: product_id of the product which is part of the order
+        test:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+
+      - name: user_id
+        description: id of user making the order, references stg_users
+        test:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
 
 
       

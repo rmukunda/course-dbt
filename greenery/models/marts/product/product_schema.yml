@@ -1,0 +1,63 @@
+version: 2
+
+models:
+
+  - name: fct_product_event_metrics
+    description: Fact table for users' session/event metrics.
+
+    columns:
+      - name: product_id
+        description: Product_id of product with metrics.
+        tests:
+          - not_null
+
+      - name: total_user_sessions
+        description: Number of different sessions recorded for the product
+        tests:
+          - not_null
+          - non_zero
+      - name: total_unique_users
+        description: Number of different users who interacted with the product
+        tests:
+          - not_null
+          - non_zero
+
+      - name: total_user_session_events
+        description: Number of different user sessions recorded for the product.
+        tests:
+          - not_null
+          - non_zero
+
+
+
+  - name: fct_product_orders
+    description: Fact table for users' order metrics..
+
+    columns:
+      - name: product_id
+        description: Product_id of product with metrics.
+        tests:
+          - not_null
+
+      - name: number_of_orders
+        description: Number of different orders for the product
+        tests:
+          - not_null
+          - non_zero
+      - name: amount_spent
+        description: Total amounts spent by users for the product
+        tests:
+          - not_null
+          - non_zero
+
+      - name: total_order_cost_amount
+        description: Total spends of orders involving the product, for comparison
+        tests:
+          - not_null
+          - non_zero
+      
+      - name: product_order_share
+        description: Share of the product in the total order cost of orders product is part of
+        tests:
+          - not_null
+          - non_zero

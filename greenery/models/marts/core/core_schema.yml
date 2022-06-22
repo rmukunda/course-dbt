@@ -1,0 +1,55 @@
+version: 2
+
+models:
+
+  - name: dim_products
+    description: Dimension table for Product with relevant information.
+
+    columns:
+      - name: product_id
+        description: unique id for an address assigned to a user.
+        tests:
+          - unique
+          - not_null
+      - name: price
+        description: price set for the product
+        tests:
+          - not_null
+
+  - name: dim_users
+    description: Dimension table for greenery users.
+
+    columns:
+      - name: user_id
+        description: unique id of the user.
+        tests:
+          - unique
+          - not_null
+      - name: country
+        description: User's country from address.
+        tests:
+          - not_null
+
+  - name: int_user_product_events
+    description: Intermediate table with session data for users & products.
+
+    columns:
+      - name: user_id
+        description: Id of the user.
+        tests:
+          - not_null
+
+      - name: session_id
+        description: session_id of a user session.
+        tests:
+          - not_null
+          - unique
+      
+      - name: product_id
+        description: product user is interacting with, in a session.
+        test:
+          - not_null
+
+      - name: order_id
+        description: order_id of the order, if a user orders in a session.
+        

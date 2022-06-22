@@ -1,0 +1,23 @@
+version: 2
+
+models:
+
+  - name: fct_user_event_metrics
+    description: Dimension table for Product with relevant information.
+
+    columns:
+      - name: user_id
+        description: unique id for an address assigned to a user.
+        tests:
+          - not_null
+
+      - name: total_user_sessions
+        description: Number of different sessions recorded for the user
+        tests:
+          - not_null
+          - non_zero
+      - name: total_unique_products_sampled
+        description: Number of products user has interacted with in Greenery
+        tests:
+          - not_null
+          - non_zero
