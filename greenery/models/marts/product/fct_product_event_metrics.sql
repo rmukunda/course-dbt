@@ -9,7 +9,7 @@ with product_session_stats as
 	count(distinct user_id  ) total_unique_users,
 	sum(session_events) total_user_session_events,
 	count(distinct session_id ) filter (where checkout > 0 and add_to_cart>0) as product_sessions_with_checkouts,
-	count(distinct session_id ) filter (where package_shipped > 0) as product_sessions_with_shipment,
+	count(distinct session_id ) filter (where package_shipped > 0 and add_to_cart>0) as product_sessions_with_shipment,
 	count(distinct session_id ) filter (where add_to_cart > 0) as product_sessions_with_add_to_cart,
 	sum(add_to_cart) as total_add_to_cart,
 	sum(page_view) as total_page_views,

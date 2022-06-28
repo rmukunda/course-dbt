@@ -52,6 +52,7 @@ final_ as
 		session_buys sb
 	left join product_sesions ps on
 		sb.session_id = ps.session_id
+	where ps.product_id is not null 
 )
 
 select

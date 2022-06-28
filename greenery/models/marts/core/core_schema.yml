@@ -43,7 +43,7 @@ models:
         description: session_id of a user session.
         tests:
           - not_null
-          - unique
+          
       
       - name: product_id
         description: product user is interacting with, in a session.
@@ -52,4 +52,4 @@ models:
 
       - name: order_id
         description: order_id of the order, if a user orders in a session.
-        
+
