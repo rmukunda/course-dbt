@@ -1,5 +1,6 @@
 {{
-    config(materialized='table')
+    config(materialized='table',
+			post_hook="{{create_index(this, ['user_id','country'], ['first_name','last_name'])}}")
     }}
 
 select
