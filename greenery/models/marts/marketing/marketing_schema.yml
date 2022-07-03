@@ -21,3 +21,19 @@ models:
         tests:
           - not_null
           - non_zero
+
+  - name: fct_session_counts
+    description: A view containing various types of session counts.
+
+    columns:
+      - name: total_sessions
+        description: Count of number of sessions in Greenery
+
+      - name: page_view_sessions
+        description: Count of sessions in Greenery with page views
+
+      - name: add_to_cart_sessions
+        description: Count of sessions in Greenery with add to cart events.
+
+      - name: checkout_sessions
+        description: Count of sessions in Greenery with checkout events.

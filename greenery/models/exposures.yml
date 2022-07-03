@@ -1,0 +1,13 @@
+version: 2
+
+exposures:  
+  - name: Product Funnel Reporting
+    description: >
+      Model getting queried in Product funnel reporting.
+    type: dashboard
+    maturity: high
+    owner:
+      name: Mukunda
+      email: mukunda@greenery.com
+    depends_on:
+      - ref('fct_session_counts')
